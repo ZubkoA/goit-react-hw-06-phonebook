@@ -10,10 +10,13 @@ const contacts = createSlice({
     },
 
     createContact: (state, { payload }) => {
-      if (state.contacts.name === payload.name)
-        return alert(`${payload.name} is already in contacts.`);
-
-      state.contacts.push({ id: nanoid(), ...payload });
+      for (let contact of state.contacts) {
+        if (contact.name === payload.name) {
+          alert(`${payload.name} is already in contacts.`);
+          break;
+        }
+        state.contacts.push({ id: nanoid(), ...payload });
+      }
     },
 
     deleteContact: (state, { payload }) => {
