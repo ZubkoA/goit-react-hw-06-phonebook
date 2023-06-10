@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
+
 import Header from './Header';
-import { useState, useEffect } from 'react';
+
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import AddContacts from './AddContacts/AddContacts';
