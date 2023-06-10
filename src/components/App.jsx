@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Header from './Header';
-
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import AddContacts from './AddContacts/AddContacts';
