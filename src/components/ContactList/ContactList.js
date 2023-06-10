@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListElement from '../ListElement/ListElement';
 import css from './ContactList.module.css';
+import { useSelector } from 'react-redux';
 
-const ContactList = ({ contacts, deleteContact }) => (
-  <ul className={css.contacts}>
-    {contacts.map(({ name, id, number }) => (
-      <li className={css.contacts__item} key={id}>
-        <ListElement
-          name={name}
-          number={number}
-          id={id}
-          deleteContact={deleteContact}
-        />
-      </li>
-    ))}
-  </ul>
-);
+const ContactList = () => {
+  const { contacts } = useSelector(state => state.contact);
+  console.log(contacts);
+  return (
+    <ul className={css.contacts}>
+      {contacts.map(({ name, id, number }) => (
+        <li className={css.contacts__item} key={id}>
+          <ListElement name={name} number={number} id={id} />
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
